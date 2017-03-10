@@ -23,4 +23,4 @@ getAndClean <- function(){
     df4
 }
 
-df <- dfgetAndClean()
+df <- getAndClean()
