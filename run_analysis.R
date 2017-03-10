@@ -21,8 +21,6 @@ getAndClean <- function(){
     df4 <- sapply(df3, function(x) colMeans(x[-c(ncol(x), ncol(x)-1)]))
     ncol(data)
     df4
-    
 }
 
-
-getAndClean()
+df <- dfgetAndClean()
