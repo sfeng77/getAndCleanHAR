@@ -1,3 +1,7 @@
+## This function reads the data and labels, merge the datasets, 
+## label them properly, and subsets the data according to the 
+## instructions.
+
 getAndLabel <- function(){
     df <- rbind( read.table("UCI HAR Dataset/train/X_train.txt"), read.table("UCI HAR Dataset/test/X_test.txt"))
 
@@ -16,12 +20,14 @@ getAndLabel <- function(){
     df1
 }
 
+##This function calculate the mean of the variables for each subject and activity.
 average_data <- function(df){
     dat <- subset(df, select = -c(Subject, Activity.name))
     df2 <- aggregate(dat, by = list(Subject = df$Subject, Activity = df$Activity.name), FUN = "mean")
     df2
 }
 
+## Calls the previous two functions and write the result to target file.
 run_analysis <- function(){
     df <- getAndLabel()
     df2 <- average_data(df)
